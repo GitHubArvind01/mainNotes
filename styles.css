@@ -1,0 +1,96 @@
+/* Reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+/* Container styling */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: #0025ff;
+    font-family: cursive;
+}
+
+/* Notes grid styling */
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 1 column by default (mobile) */
+    gap: 20px;
+}
+
+/* Note card styling */
+.note {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* Transition for hover effect */
+    overflow: hidden; /* Ensures rounded corners for images */
+}
+
+/* Image styling inside the note card */
+.note img {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 200px; /* Maximum height to keep uniformity */
+    object-fit: contain; /* Ensure the image fits without being cut off */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* Text inside the note card */
+.note p {
+    padding: 10px;
+    font-size: 1.2rem;
+    color: #bd00ff;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+/* Hover effect for desktop (scale effect) */
+.note:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive grid for tablets (2 columns) */
+@media screen and (min-width: 768px) {
+    .notes-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+    }
+}
+
+/* Responsive grid for desktops (3 columns) */
+@media screen and (min-width: 1024px) {
+    .notes-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for desktops */
+    }
+}
+
+/* Disable hover effect on mobile devices */
+@media (max-width: 768px) {
+    .note {
+        transition: none; /* Disable transition */
+        transform: none; /* Disable scaling */
+    }
+}
+
+/* Disable hover effect for touch devices, like iOS/Android devices */
+@media (hover: none) {
+    .note {
+        transition: none; /* No transition on touch devices */
+        transform: none; /* Disable transform */
+    }
+}
